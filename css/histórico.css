@@ -1,0 +1,46 @@
+/* Estilos principais para a tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50; /* Verde escuro para o cabeçalho */
+    color: white;
+}
+
+/* Cor de fundo das linhas alternadas */
+tr:nth-child(even) {
+    background-color: #dff0d8; /* Verde claro */
+}
+
+tr:nth-child(odd) {
+    background-color: #e9f7e3; /* Outro tom de verde claro */
+}
+
+/* Cor ao passar o mouse sobre a linha */
+tr:hover {
+    background-color: #c8e6c9; /* Verde claro ao passar o mouse */
+}
+
+/* Estilo para a tabela no caso de estar vazia ou ter erros */
+td, th {
+    font-size: 16px;
+}
+
+.row1, .row2, .row3, .row4, .row5 {
+    transition: background-color 0.3s ease;
+}
+
+/* Ajuste do fundo para o destaque na linha selecionada */
+.row1:hover, .row2:hover, .row3:hover, .row4:hover, .row5:hover {
+    background-color: #a5d6a7; /* Verde médio */
+}

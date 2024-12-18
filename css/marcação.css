@@ -1,0 +1,184 @@
+/* Estilo para as caixas de links */
+.link-box {
+    display: block;
+    padding: 20px;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    text-align: center;
+    background-color: transparent;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efeito de hover para as caixas */
+.link-box:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Alinhamento e ajustes das colunas */
+.options-list {
+    text-align: center;
+    margin-top: 0px; /* Ajusta a posição das opções para alinhar com os mapas */
+}
+
+/* Ajuste da lista para que fique centralizada e alinhada com os mapas */
+.map-container {
+    max-width: 100%;
+    overflow-y: auto;
+}
+
+.link-boxz {
+    display: block;
+    padding: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: transparent;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-boxz:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.custom-input {
+    display: none; /* Inicialmente escondido */
+}
+
+.text-large {
+    font-size: 1.5rem; /* Ajuste o tamanho conforme necessário */
+    line-height: 1.6;
+}
+
+li {
+    list-style: none; /* Remove os marcadores padrão */
+}
+
+/* Estilização do modal */
+.modal {
+    display: none; /* Oculta o modal por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 400px;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 1; /* Fica acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite rolar se necessário */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+}
+
+/* Estilo do conteúdo do modal */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    margin: 15% auto;
+    width: 50%; /* Ajuste o tamanho conforme necessário */
+    border-radius: 8px;
+}
+
+/* Estilo para a lista de opções */
+.paraUl {
+    padding-left: 20px;
+}
+
+/* Estilo das opções de pagamento */
+.paraLi {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+/* Estilo das imagens e ícones das opções de pagamento */
+.payment-icon {
+    width: 30px; /* Tamanho da imagem reduzido */
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Estilo dos formulários que aparecem ao selecionar uma opção */
+.payment-form {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.payment-form input {
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.butao {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #4CAF50 !important; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.butao:hover {
+    background-color: #90ee90 !important;  
+}
+
+input:focus, button:focus {
+    outline: none;
+    border-color: #006400;
+}
+
+button:active {
+    background-color: #218838;
+}
