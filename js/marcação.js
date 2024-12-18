@@ -1,9 +1,11 @@
 // Carregar os dados do utilizador logado
+// Carregar os dados do utilizador logado
 const loggedIn = localStorage.getItem('myHealthLoggedIn');
 if (!loggedIn) {
-  window.location.href = "login.html";
+    window.location.href = "login.html"; // Redireciona para o login se não estiver logado
 }
-let user
+
+let userData = JSON.parse(localStorage.getItem('currentUser'));
 
 $(document).ready(function() {
     // Inicializar Datepicker
