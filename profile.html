@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <link href="images/icon.png" rel="shortcut icon">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyHealth'ub - Perfil do Utilizador</title>
+
+  <!-- Link para Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      height: 100%;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .profile-container {
+      min-height: calc(100vh - 70px);
+      padding-top: 100px; /* Espaço para não ficar por baixo do header */
+      padding-bottom: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 80%; /* A largura da div será 80% da largura da tela */
+      margin: 0 auto; /* Centraliza a div */
+    }
+
+    h1 {
+      text-align: center;
+      color: #28a745;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 30px 40px;
+      display: flex;
+      flex-direction: column;
+      width: 100%; /* Formulário ocupará toda a largura da div .profile-container */
+      max-width: 800px; /* Limita a largura máxima do formulário */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    input {
+      margin-top: 5px;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px; 
+      background-color: #4CAF50; 
+      border: none; 
+      color: #fff; 
+      font-size: 16px; 
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover { 
+      background-color: #45a049; 
+    }
+
+    .link {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .link a {
+      color: #28a745;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+
+</head>
+<body>
+  <header class="bg-light border-bottom">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html"><img src="images/icon.png" style="height: 20px;"/> My Health Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consultas.html">Consultas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marcacao.html">Marcações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="histórico.html">Histórico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="profile.html">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Sobre Nós</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+  <div class="profile-container">
+    <h1>Configurações do Perfil</h1>
+    <form id="profileForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" style="width: 100%;" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" style="width: 100%;" required>
+
+        <label for="ntele">Nº de telémovel:</label>
+        <input type="tel" id="ntele" style="width: 100%;" >
+
+        <label for="nns">Número Nacional de Saúde:</label>
+        <input type="text" id="nns" style="width: 100%;" required>
+
+        <label for="morada">Morada:</label>
+        <input type="text" id="morada" style="width: 100%;" >
+
+        <label for="contribuinte">Contribuinte:</label>
+        <input type="text" id="contribuinte" style="width: 100%;" >
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+    <div class="link">
+        <a href="index.html" style="margin-right: 10px;">Voltar à Página Principal</a>
+        <a href="#" id="logoutButton" style="background-color: #006400; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Terminar Sessão</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2024 My Health'Ub. Todos os direitos reservados.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Verificar se está logado
+    const loggedIn = localStorage.getItem('myHealthLoggedIn');
+    if (!loggedIn) {
+      window.location.href = "login.html";
+    }
+
+    // Obter o usuário logado
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    // Carregar a lista de usuários
+    let users = JSON.parse(localStorage.getItem('myHealthUsers')) || [];
+
+    if (!currentUser) {
+      // Se não houver dados do usuário logado, redirecionar para o login
+      window.location.href = "login.html";
+    } else {
+      // Encontrar os dados do usuário logado
+      const userData = users.find(user => user.email === currentUser.email);
+
+      if (!userData) {
+        // Se o usuário não for encontrado, redirecionar para o login
+        window.location.href = "login.html";
+      } else {
+        // Preencher campos com os dados do usuário
+        document.getElementById('nome').value = userData.nome || "";
+        document.getElementById('email').value = userData.email || "";
+        document.getElementById('ntele').value = userData.ntele || "";
+        document.getElementById('nns').value = userData.nns || "";
+        document.getElementById('morada').value = userData.morada || "";
+        document.getElementById('contribuinte').value = userData.contribuinte || "";
+      }
+    }
+
+    // Atualizar os dados do usuário quando o formulário for enviado
+    const profileForm = document.getElementById('profileForm');
+    profileForm.addEventListener('submit', (e) => {
+      e.preventDefault();  // Impede o envio padrão do formulário
+
+      // Obter os valores dos campos
+      const nome = document.getElementById('nome').value.trim() || "";
+      const email = document.getElementById('email').value.trim() || "";
+      const ntele = document.getElementById('ntele').value.trim() || "";
+      const nns = document.getElementById('nns').value.trim() || "";
+      const morada = document.getElementById('morada').value.trim() || "";
+      const contribuinte = document.getElementById('contribuinte').value.trim() || "";
+
+      // Encontrar o usuário correto na lista
+      const userData = users.find(user => user.email === currentUser.email);
+
+      // Atualizar os dados do usuário
+      userData.nome = nome;
+      userData.email = email;
+      userData.ntele = ntele;
+      userData.nns = nns;
+      userData.morada = morada;
+      userData.contribuinte = contribuinte;
+
+      // Salvar a lista atualizada no localStorage
+      localStorage.setItem('myHealthUsers', JSON.stringify(users));
+
+      // Mostrar um aviso de sucesso
+      alert('Perfil atualizado com sucesso!');
+    });
+
+    // Terminar Sessão
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', () => {
+      // Remover dados do login
+      localStorage.removeItem('myHealthLoggedIn');
+      localStorage.removeItem('currentUser');
+
+      // Redirecionar para o login
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

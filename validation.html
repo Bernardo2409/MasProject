@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <link href="images/icon.png" rel="shortcut icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyHealth'ub - Validação de Perfil</title>
+  <!-- Link para Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      height: 100%;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .validation-container {
+      min-height: calc(100vh - 70px);
+      padding-top: 100px; /* Espaço para não ficar por baixo do header fixo */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      color: #28a745;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #333;
+    }
+
+    .container-custom {
+      max-width: 400px;
+      border: 2px dashed #ccc;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+    }
+
+    #fileInput {
+      margin-top: 20px;
+    }
+
+    #dropZone {
+      margin-top: 20px;
+      padding: 30px;
+      border: 2px dashed #999;
+      color: #999;
+      border-radius: 8px;
+    }
+
+    #dropZone.dragover {
+      border-color: #4CAF50;
+      color: #4CAF50;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px; 
+      background-color: #4CAF50; 
+      border: none; 
+      color: #fff; 
+      font-size: 16px; 
+      cursor: pointer;
+      border-radius: 4px;
+      width: 100%;
+      z-index: 10; /* Garantir que o botão não esteja por baixo de outros elementos */
+    }
+
+    button:hover { background-color: #45a049; }
+
+    .erro { color: red; margin-top: 10px; }
+    .sucesso { color: green; margin-top: 10px; }
+
+    footer {
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Corpo HTML com área de upload -->
+  <div class="validation-container">
+    <h1>MyHealth'ub - Validação de Perfil</h1>
+    <p>Por favor, envie uma imagem do seu Cartão de Cidadão para validar a sua conta.</p>
+    <div class="container-custom">
+      <p>Arraste a imagem para a área abaixo ou clique no botão para selecionar um ficheiro.</p>
+      <div id="dropZone">Arraste a imagem aqui</div>
+      <input type="file" id="fileInput" accept="image/*">
+      <button id="submitBtn">Submeter Imagem</button>
+      <div class="erro" id="erroMsg"></div>
+      <div class="sucesso" id="sucessoMsg"></div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const submitBtn = document.getElementById('submitBtn');
+    const erroMsg = document.getElementById('erroMsg');
+    const sucessoMsg = document.getElementById('sucessoMsg');
+  
+    let selectedFile = null;
+  
+    // Adicionar estilos de drag
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+  
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('dragover');
+    });
+  
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        selectedFile = e.dataTransfer.files[0];
+        sucessoMsg.textContent = "Ficheiro selecionado: " + selectedFile.name;
+      }
+    });
+  
+    // Quando o arquivo é selecionado manualmente
+    fileInput.addEventListener('change', () => {
+      selectedFile = fileInput.files[0];
+      if (selectedFile) {
+        sucessoMsg.textContent = "Ficheiro selecionado: " + selectedFile.name;
+      }
+    });
+  
+    // Lógica para submeter a validação
+    submitBtn.addEventListener('click', () => {
+      console.log('Botão de envio clicado');  // Depuração para verificar se o clique é detectado
+      erroMsg.textContent = ''; // Limpar mensagens de erro
+  
+      if (!selectedFile) {
+        erroMsg.textContent = 'Por favor, selecione ou arraste uma imagem.';
+        return;
+      }
+  
+      // Verificar se o usuário está logado ou identificado
+      let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  
+      if (!currentUser) {
+        erroMsg.textContent = 'Não há dados de utilizador. Crie uma conta primeiro.';
+        return;
+      }
+  
+      // Carregar os usuários existentes do localStorage (caso existam)
+      let users = JSON.parse(localStorage.getItem('myHealthUsers')) || [];
+  
+      // Encontrar o usuário correto
+      let userData = users.find(user => user.email === currentUser.email);
+  
+      if (!userData) {
+        erroMsg.textContent = 'Usuário não encontrado.';
+        return;
+      }
+  
+      // Marcar a conta como validada
+      userData.validated = true;
+  
+      // Atualizar os dados do usuário no localStorage
+      localStorage.setItem('myHealthUsers', JSON.stringify(users));
+  
+      sucessoMsg.textContent = 'Conta validada com sucesso! Pode agora efetuar login.';
+  
+      // Redirecionar após 2 segundos
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 2000);
+    });
+  </script>
+  
+</body>
+</html>
