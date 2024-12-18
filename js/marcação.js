@@ -5,7 +5,6 @@ if (!loggedIn) {
     window.location.href = "login.html"; // Redireciona para o login se não estiver logado
 }
 
-let userData = JSON.parse(localStorage.getItem('currentUser'));
 
 $(document).ready(function() {
     // Inicializar Datepicker
