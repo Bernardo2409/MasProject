@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="images/icon.png" rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Help</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link href="css/help.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="bg-light border-bottom">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html"><img src="images/icon.png" style="height: 20px;"/> MyHealth'ub</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="consultas.html">Consultas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="marcacao.html">Marcações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="histórico.html">Histórico</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="help.html">Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Sobre Nós</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="deneb_cta" style="background-image: url('./images/topics/undraw_online_ad_re_ol62.png');">
+        <div class="container" style="padding-top: 300px">
+            <div class="cta_wrapper">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="cta_content">
+                            <h3 class="mb-4">Algum problema?</h3>
+                            <p>Ajuda-nos a melhorar o nosso website! Entra em contacto.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="button_box">
+                            <button type button style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="btn" data-bs-toggle="modal" data-bs-target="#modalForm">Contact Here</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div style="min-height: 300px;" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contact Our Team</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="http://192.168.160.36/FormEcho.aspx" name="SupportTicket" id="SupportTicket">
+                        <select class="form-select mb-3" aria-label="Select">
+                            <option value="0"selected>Purpose of contacting...</option>
+                            <option value="1">Report a bug</option>
+                            <option value="2">Make a suggestion</option>
+                        </select>
+                        <div id="Formulario" class="d-none">
+                            <div class="row">
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label class="form-label">First Name<span style="color:red;">*</span></label>
+                                    <input type="text" class="form-control" id="Firstname" name="Firstname" placeholder="First Name" />
+                                    <div style="font-size: 70%;" class="d-none text-danger col-form-label" id="Nome1Error"><i class="fa fa-exclamation-triangle"></i> Required field! (Min: 4 characters)</div>
+                                </div>
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label class="form-label">Last Name<span style="color:red;">*</span></label>
+                                    <input type="text" class="form-control" id="Lastname" name="Lastname" placeholder="Last Name" />
+                                    <div style="font-size: 70%;" class="d-none text-danger col-form-label" id="Nome2Error"><i class="fa fa-exclamation-triangle"></i> Required field! (Min: 4 characters)</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email Address<span style="color:red;">*</span></label>
+                                <input type="text" class="form-control" id="Email" name="Email" placeholder="Email" />
+                                <div style="font-size: 70%;" class="d-none text-danger col-form-label" id="EmailError"><i class="fa fa-exclamation-triangle"></i> Invalid Email Adress!</div>
+                            </div>
+                            <div id="Bugs" class="mb-3 d-none">
+                                <label for="exampleFormControlTextarea1">Date</label>
+                                <input class="form-control" type="date" id="Datepicker" name="Datepicker" />
+                                <div style="font-size: 70%;" class="d-none text-danger col-form-label" id="DateError"><i class="fa fa-exclamation-triangle"></i> Invalid Date!</div>
+                            </div>
+                            <div id="suggestion" class="mb-3 d-none">
+                                <fieldset >
+                                    <label class="form-label" style="margin-bottom  : 0px;">Classify our site<span style="color:red;">*</span></label> <p></p>
+                                    <input type="radio" name="avaliacao" value="" id="cinco" />
+                                    <label for="cinco">5</label><br />
+                                    <input type="radio" name="avaliacao" value="" id="quatro" />
+                                    <label for="quatro">4</label><br />
+                                    <input type="radio" name="avaliacao" value="" id="tres" />
+                                    <label for="tres">3</label><br />
+                                    <input type="radio" name="avaliacao" value="" id="dois" />
+                                    <label for="dois">2</label><br />
+                                    <input type="radio" name="avaliacao" value="" id="um" />
+                                    <label for="um">1</label><br />
+                                </fieldset>
+                                <div style="font-size: 70%;" class="d-none text-danger col-form-label" id="SuggestionError"><i class="fa fa-exclamation-triangle"></i> Need to select a option!</div>
+
+                            </div>             
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1">Message<span style="color:red;">*</span></label>
+                                <textarea form="SupportTicket" class="form-control" id="Text" rows="3"></textarea>
+                                <div style="font-size: 70%;" class="d-none text-danger col-form-label" id="TextError"><i class="fa fa-exclamation-triangle"></i> Required field! (Min: 10 words).</div>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="Terms" />
+                                <label class="form-check-label" for="rememberMe">I Agree with Terms & Conditions<span style="color:red;">*</span></label>
+                                <div style="font-size: 70%;" class="d-none text-danger col-form-label" id="TermsError"><i class="fa fa-exclamation-triangle"></i> You must agree with our Terms and Conditions to proceed.</div>
+                            </div>
+                            <div class="mb-3">
+                                <span style="font-size:60%; color:red;">* Required fields.</span>
+                            </div>
+                            <div class="modal-footer d-block">
+                                <!-- <p class="float-start">Not yet account <a href="#">Sign Up</a></p> -->
+                                <input type="Submit" name="submitBtn" value="Submit" class="btn btn-danger float-end" onclick="return validate()" />
+                                <!-- <button type="submit" name="submitBtn" value="Enviar" class="btn btn-danger float-end" onclick="return validate()">Submit</button> -->
+                                <button type="reset" name="resetBtn" value="Limpar" class="btn btn-secondary float-end" onClick="resetFunc()">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row" style="height: 380px;">
+                <div class="mt-3 col-12 col-md-4">
+                    <h2 style="margin-bottom: 5vh; color: grey;" class="text-center">Classifica o nosso sistema!</h2>
+                    <fieldset style="text-align: center; margin-left: -150px;">
+                        <input type="radio" name="avaliacao" value="5" id="cinco" />
+                        <label for="cinco">5</label><br />
+                        <input type="radio" name="avaliacao" value="4" id="quatro" />
+                        <label for="quatro">4</label><br />
+                        <input type="radio" name="avaliacao" value="3" id="tres" />
+                        <label for="tres">3</label><br />
+                        <input type="radio" name="avaliacao" value="2" id="dois" />
+                        <label for="dois">2</label><br />
+                        <input type="radio" name="avaliacao" value="1" id="um" />
+                        <label for="um">1</label><br />
+                    </fieldset>
+    
+                    <div class="text-center mt-3">
+                        <button onclick="showThankYouMessage()" class="btn btn-success" id="submit-btn" disabled>Enviar</button>
+                    </div>
+    
+                    <p id="thank-you-message" style="display:none; text-align:center; color:green; margin-top:10px;">"Obrigado pelo feedback! A sua avaliação ajuda-nos a melhorar o sistema!"</p>
+                </div>
+    
+                <div class="col-12 col-md-8 d-flex justify-content-center align-items-center mt-3">
+                    <div class="mx-3">
+                        <img style="height: 5vw;" src="./images/topics/undraw_Compose_music_re_wpiw.png" class="d-block">
+                    </div>
+                    <div class="mx-3">
+                        <img style="height: 5vw;" src="./images/topics/undraw_Finance_re_gnv2.png" class="d-block">
+                    </div>
+                    <div class="mx-3">
+                        <img style="height: 5vw;" src="./images/topics/undraw_Podcast_audience_re_4i5q.png" class="d-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/help.js"></script>
+</body>
+</html>

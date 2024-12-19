@@ -51,21 +51,20 @@
         img {
             height: 20px;
         }
-        /* Estilo para o modal */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);  /* Fundo escuro transparente */
+    background-color: rgba(0, 0, 0, 0.6); 
     display: none;
     justify-content: center;
     align-items: center;
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Conteúdo do Modal */
+
 .modal-content {
     background-color: #ffffff;
     padding: 30px;
@@ -77,20 +76,20 @@
     animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Animação de fade-in */
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-/* Estilo do texto do modal */
+
 .modal-content p {
     font-size: 18px;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Estilo do botão de fechar */
+
 .close {
     color: #333;
     font-size: 24px;
@@ -101,7 +100,7 @@
     cursor: pointer;
 }
 
-/* Botões de confirmação e cancelamento */
+
 button {
     font-size: 16px;
     padding: 12px 20px;
@@ -111,30 +110,30 @@ button {
     margin: 10px;
 }
 
-/* Botão "Sim" */
+
 #confirmarApagar {
-    background-color: #28a745;  /* Verde */
+    background-color: #28a745;
     color: white;
     transition: background-color 0.3s;
 }
 
 #confirmarApagar:hover {
-    background-color: #218838;  /* Verde mais escuro */
+    background-color: #218838;
 }
 
-/* Botão "Não" */
+
 #cancelarApagar {
-    background-color: #f8f9fa;  /* Branco suave */
+    background-color: #f8f9fa;
     color: #333;
     border: 1px solid #ccc;
     transition: background-color 0.3s;
 }
 
 #cancelarApagar:hover {
-    background-color: #e2e6ea;  /* Cinza suave */
+    background-color: #e2e6ea;
 }
 
-/* Adiciona um efeito de foco suave */
+
 button:focus {
     outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -149,7 +148,7 @@ button:focus {
     <header class="bg-light border-bottom">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html"><img src="images/icon.png" style="height: 20px;"/> My Health Hub</a>
+                <a class="navbar-brand" href="index.html"><img src="images/icon.png" style="height: 20px;"/> MyHealth'ub</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -171,6 +170,9 @@ button:focus {
                             <a class="nav-link" href="profile.html">Perfil</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="about.html">Sobre Nós</a>
                         </li>
                     </ul>
@@ -182,7 +184,6 @@ button:focus {
     <div class="container mt-5">
         <h1 class="text-center mb-5">Consultas Futuras</h1>
 
-        <!-- Tabela -->
         <table class="table table-striped" data-bind="visible: consultas().length > 0">
             <thead>
                 <tr>
@@ -194,6 +195,7 @@ button:focus {
                     <th>Endereço</th>
                     <th>Data e Hora</th>
                     <th>Localização</th>
+                    <th></th> 
                 </tr>
             </thead>
             <tbody data-bind="foreach: consultas">
@@ -208,15 +210,30 @@ button:focus {
                     <td>
                         <iframe id="gmap_canvas" frameborder="0" scrolling="no" style="width: 100%; height: 200px;" data-bind="attr: { src: mapSrc }"></iframe>
                     </td>
+                    <td>
+                        <button class="btn btn-danger" data-bind="click: $parent.abrirModal.bind($data)">Cancelar Marcação</button>
+        </td>
+                    </td>
                 </tr>
-            </tbody>
-            
+            </tbody>           
             <tfoot data-bind="visible: consultas().length === 0">
                 <tr>
-                    <td colspan="8" style="text-align: center;">Nenhuma consulta encontrada.</td>
+                    <td colspan="9" style="text-align: center;">Nenhuma consulta encontrada.</td>
                 </tr>
             </tfoot>
         </table>
+        <div id="confirmationModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h3>Tem certeza de que deseja cancelar esta consulta?</h3>
+                <div class="modal-actions">
+                 
+                    <button id="cancelButton" class="btn btn-success">Cancelar</button>
+                 
+                    <button id="confirmButton" class="btn btn-danger">Confirmar</button>
+                </div>
+            </div>
+        </div>
+        
         
         <div data-bind="visible: consultas().length === 0" class="text-center">
             <p>Não há consultas por realizar.</p>
@@ -226,16 +243,6 @@ button:focus {
             <a href="index.html" class="btn butao">Voltar ao Menu</a>
         </div>
         
-        <!-- Modal de Confirmação -->
-        <div id="confirmModal" class="modal" data-bind="css: { show: showConfirmModal() }">
-            <div class="modal-content">
-                <p>Tem certeza de que deseja apagar esta marcação?</p>
-                <!-- Botão de Confirmar -->
-                <button data-bind="click: confirmarExclusao">Excluir</button>
-                <!-- Botão de Cancelar -->
-                <button id="cancelarApagar" class="btn btn-secondary" data-bind="click: cancelarExclusao">Cancelar</button>
-            </div>
-        </div>
         
         
        

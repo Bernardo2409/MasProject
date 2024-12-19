@@ -1,22 +1,19 @@
-// Carregar os dados do utilizador logado
-// Carregar os dados do utilizador logado
+
 const loggedIn = localStorage.getItem('myHealthLoggedIn');
 if (!loggedIn) {
-    window.location.href = "login.html"; // Redireciona para o login se não estiver logado
+  window.location.href = "login.html";
 }
-
-
 $(document).ready(function() {
-    // Inicializar Datepicker
+    
     $('#dataConsulta').datepicker({
         dateFormat: 'yy-mm-dd',
         minDate: 0,
     });
 
-    // Inicialmente, garantir que o modal de pagamento esteja oculto
+    
     $('#modalPagamento').hide();
 
-    // Evento ao clicar no botão "Mostrar Opções"
+    
     $('#mostrarOpcoes').click(function() {
         if (validarFormulario()) {
             var localSelecionado = $('#localConsulta').val();
@@ -24,7 +21,7 @@ $(document).ready(function() {
         }
     });
 
-    // Função para validar o formulário
+    
     function validarFormulario() {
         var nome = $('#nome').val().trim();
         var telemovel = $('#telemovel').val().trim();
@@ -41,7 +38,7 @@ $(document).ready(function() {
         return true;
     }
 
-    // Função para buscar os centros de saúde
+    
     function buscarCentrosDeSaude(cidade) {
         var service = new google.maps.places.PlacesService(document.createElement('div'));
         var coordenadas = {
@@ -69,7 +66,7 @@ $(document).ready(function() {
                 $('#listaConsultas').html(locaisEncontrados.join(''));
                 $('#consultasDisponiveis').show();
 
-                // Adicionar evento de clique aos itens da lista
+                
                 $('.consulta-item').click(function() {
                     mostrarDetalhesConsulta($(this));
                 });
@@ -80,7 +77,7 @@ $(document).ready(function() {
         });
     }
 
-    // Função para mostrar os detalhes da consulta ao clicar em um item
+    
 
     var consultaDetalhes = {};
 
@@ -92,7 +89,7 @@ $(document).ready(function() {
         var horaConsulta = $('#horaConsulta').val();
         var localConsulta = $('#localConsulta').val();
         var tipoConsulta = $('#tipoConsulta').val();
-        var nomeClinica = item.data('name');  // Definir nomeClinica com o nome da clínica clicada
+        var nomeClinica = item.data('name');
         var localClinica = item.data('local');
         
         consultaDetalhes = {
@@ -106,10 +103,10 @@ $(document).ready(function() {
             nomeClinica: nomeClinica,
             localClinica: localClinica
         };
-        // Gerar o link do Google Maps com base no local da clínica
+        
         var googleMapsLink = `https://www.google.com/maps?q=${encodeURIComponent(localClinica)}&output=embed`;
     
-        // Criar uma nova caixa de detalhes com o iframe do mapa
+        
         var detalhesHtml = `
             <div id="detalhesConsulta" style="background-color: #e6f9e6; padding: 20px; border-radius: 10px; position: relative;">
                 <!-- Título "Confirmar consulta" -->
@@ -160,54 +157,54 @@ $(document).ready(function() {
             </div>
         `;
     
-        // Substituir o formulário pelos detalhes
+        
         $('#escolherLocal').html(detalhesHtml);
     
-        // Esconder a lista de opções
+        
         $('#consultasDisponiveis').hide();
     
-        // Adicionar funcionalidade ao botão "Cancelar"
+        
         $('#cancelar').click(function() {
-            location.reload(); // Recarrega a página para voltar ao estado inicial
+            location.reload();
         });
     
-        // Adicionar funcionalidade ao botão "Confirmar"
+        
         $('#confirmar').click(function() {
-            $('#modalPagamento').fadeIn(); // Exibir o modal de pagamento
+            $('#modalPagamento').fadeIn(); 
         });
     }
     
     
     $('#confirmarPagamento').click(function() {
-        // Verificar se os detalhes da consulta estão armazenados corretamente
+        
         if (Object.keys(consultaDetalhes).length === 0) {
             alert("Por favor, selecione uma consulta antes de confirmar o pagamento.");
             return;
         }
 
-        // Salvar os detalhes no localStorage apenas quando o pagamento for confirmado
+        
         var currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
 
-        // Se o currentUser não existir ou não tiver um array de consultas, criamos um
+        
         if (!currentUser.consultas) {
             currentUser.consultas = [];
         }
 
-        // Adicionar os detalhes da consulta à lista de consultas
+        
         currentUser.consultas.push(consultaDetalhes);
 
-        // Salvar novamente no localStorage
+        
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
         alert("Pagamento concluído com sucesso!");
         $('#modalPagamento').hide();
     });
-    // Funcionalidade do modal de pagamento
+    
     $('#fecharModal').click(function() {
-        $('#modalPagamento').fadeOut(); // Fechar o modal
+        $('#modalPagamento').fadeOut();
     });
 
-    // Exibir o campo de pagamento adequado
+    
     $('#paypalBtn').click(function() {
         var campoHtml = `
             <label for="emailPayPal">Email (PayPal):</label>
@@ -235,12 +232,12 @@ $(document).ready(function() {
         $('#campoPagamento').html(campoHtml);
     });
 
-    // Validação ao fechar o modal
+    
     $('#fecharModal').click(function() {
-        $('#modalPagamento').hide(); // Fechar o modal
+        $('#modalPagamento').hide();
     });
 
-    // Função de validação do formulário antes de finalizar o pagamento
+    
     $('#confirmarPagamento').click(function() {
         var metodoPagamento = $('#campoPagamento').find('input').attr('id');
         var isValido = false;
@@ -266,33 +263,33 @@ $(document).ready(function() {
         }
 
         if (isValido) {
-            // Finalizar o pagamento
+            
             alert('Pagamento concluído com sucesso!');
             $('#modalPagamento').hide();
             location.reload();
         }
     });
 
-    // Função para validar email (PayPal)
+    
     function validarEmail(email) {
         var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regexEmail.test(email);
     }
 
-    // Função para validar número de telemóvel (MBWay)
+    
     function validarTelemovel(telemovel) {
         var regexTelemovel = /^[0-9]{9}$/;
         return regexTelemovel.test(telemovel);
     }
 
-    // Função para validar número de cartão (Cartão)
+    
     function validarCartao(numeroCartao) {
         var regexCartao = /^[0-9]{12,}$/;
         return regexCartao.test(numeroCartao);
     }
 });
 
-// Carregar a API do Google Maps
+
 function loadGoogleMapsScript() {
     var script = document.createElement('script');
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCIv5R-tIpRUiQzMf_twvWyflZxld9D-MA&libraries=places&callback=initGoogleMaps";

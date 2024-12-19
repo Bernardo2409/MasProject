@@ -5,7 +5,7 @@
   <link href="images/icon.png" rel="shortcut icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MyHealth'ub - Validação de Perfil</title>
-  <!-- Link para Bootstrap CSS -->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     html, body {
@@ -26,7 +26,7 @@
 
     .validation-container {
       min-height: calc(100vh - 70px);
-      padding-top: 100px; /* Espaço para não ficar por baixo do header fixo */
+      padding-top: 100px; 
       display: flex;
       justify-content: center;
       align-items: center;
@@ -79,7 +79,7 @@
       cursor: pointer;
       border-radius: 4px;
       width: 100%;
-      z-index: 10; /* Garantir que o botão não esteja por baixo de outros elementos */
+      z-index: 10; 
     }
 
     button:hover { background-color: #45a049; }
@@ -99,7 +99,43 @@
   </style>
 </head>
 <body>
-  <!-- Corpo HTML com área de upload -->
+  <header class="bg-light border-bottom">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html"><img src="images/icon.png" style="height: 20px;"/> MyHealth'ub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consultas.html">Consultas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marcacao.html">Marcações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="histórico.html">Histórico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="help.html">Help</a>
+                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Sobre Nós</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+  
   <div class="validation-container">
     <h1>MyHealth'ub - Validação de Perfil</h1>
     <p>Por favor, envie uma imagem do seu Cartão de Cidadão para validar a sua conta.</p>
@@ -113,7 +149,7 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS -->
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
@@ -125,7 +161,7 @@
   
     let selectedFile = null;
   
-    // Adicionar estilos de drag
+    
     dropZone.addEventListener('dragover', (e) => {
       e.preventDefault();
       dropZone.classList.add('dragover');
@@ -144,7 +180,7 @@
       }
     });
   
-    // Quando o arquivo é selecionado manualmente
+    
     fileInput.addEventListener('change', () => {
       selectedFile = fileInput.files[0];
       if (selectedFile) {
@@ -152,17 +188,17 @@
       }
     });
   
-    // Lógica para submeter a validação
+    
     submitBtn.addEventListener('click', () => {
-      console.log('Botão de envio clicado');  // Depuração para verificar se o clique é detectado
-      erroMsg.textContent = ''; // Limpar mensagens de erro
+      console.log('Botão de envio clicado');  
+      erroMsg.textContent = ''; 
   
       if (!selectedFile) {
         erroMsg.textContent = 'Por favor, selecione ou arraste uma imagem.';
         return;
       }
   
-      // Verificar se o usuário está logado ou identificado
+      
       let currentUser = JSON.parse(localStorage.getItem('currentUser'));
   
       if (!currentUser) {
@@ -170,10 +206,10 @@
         return;
       }
   
-      // Carregar os usuários existentes do localStorage (caso existam)
+      
       let users = JSON.parse(localStorage.getItem('myHealthUsers')) || [];
   
-      // Encontrar o usuário correto
+      
       let userData = users.find(user => user.email === currentUser.email);
   
       if (!userData) {
@@ -181,15 +217,15 @@
         return;
       }
   
-      // Marcar a conta como validada
+      
       userData.validated = true;
   
-      // Atualizar os dados do usuário no localStorage
+      
       localStorage.setItem('myHealthUsers', JSON.stringify(users));
   
       sucessoMsg.textContent = 'Conta validada com sucesso! Pode agora efetuar login.';
   
-      // Redirecionar após 2 segundos
+      
       setTimeout(() => {
         window.location.href = "login.html";
       }, 2000);

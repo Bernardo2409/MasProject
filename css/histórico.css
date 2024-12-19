@@ -13,25 +13,25 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50; /* Verde escuro para o cabeçalho */
+    background-color: #4CAF50; 
     color: white;
 }
 
-/* Cor de fundo das linhas alternadas */
+
 tr:nth-child(even) {
-    background-color: #dff0d8; /* Verde claro */
+    background-color: #dff0d8; 
 }
 
 tr:nth-child(odd) {
-    background-color: #e9f7e3; /* Outro tom de verde claro */
+    background-color: #e9f7e3; 
 }
 
-/* Cor ao passar o mouse sobre a linha */
+
 tr:hover {
-    background-color: #c8e6c9; /* Verde claro ao passar o mouse */
+    background-color: #c8e6c9;
 }
 
-/* Estilo para a tabela no caso de estar vazia ou ter erros */
+
 td, th {
     font-size: 16px;
 }
@@ -40,7 +40,32 @@ td, th {
     transition: background-color 0.3s ease;
 }
 
-/* Ajuste do fundo para o destaque na linha selecionada */
+
 .row1:hover, .row2:hover, .row3:hover, .row4:hover, .row5:hover {
-    background-color: #a5d6a7; /* Verde médio */
+    background-color: #a5d6a7;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #28a745;
+    font-weight: bold;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tr:hover {
+    background-color: #f1f1f1;
 }

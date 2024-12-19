@@ -1,4 +1,4 @@
-/* chat open and close */
+
 .chat-bar-open {
   text-align: center;
   position: fixed;
@@ -56,7 +56,7 @@
   border-top: 31px solid #fff;
 }
 
-/* chat window 1 */
+
 .chat-window {
   width: 332px;
   height: 280px;
@@ -110,7 +110,7 @@
   top: 3px;
 }
 
-/* chat window 2 */
+
 .chat-window2 {
   display: none;
   width: 332px;
@@ -280,13 +280,13 @@
   }
 }
 #chat-open-button {
-  width: 40px; /* Ajuste o tamanho desejado */
-  height: 40px; /* Ajuste o tamanho desejado */
-  border-radius: 50%; /* Torna o botão circular */
-  padding: 5px; /* Ajusta o espaçamento interno */
-  background-color: #fff; /* Cor de fundo */
-  border: 1px solid #ccc; /* Borda do botão */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  padding: 5px; 
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 #chat-close-button {
@@ -294,29 +294,29 @@
   height: 40px;
   border-radius: 50%;
   padding: 5px;
-  background-color: #fff; /* Cor de fundo */
-  border: 1px solid #ccc; /* Borda do botão */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
   cursor: pointer;
 }
 
 #chat-open-button img {
-  width: 100%; /* Redimensiona a imagem para se ajustar ao botão */
-  height: auto; /* Mantém a proporção da imagem */
+  width: 100%; 
+  height: auto;
 }
 #chat-open-button:hover {
-  background-color: #f0f0f0; /* Cor ao passar o mouse */
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Sombra maior */
+  background-color: #f0f0f0; 
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Mensagens do usuário */
+
 .message-box .first-chat {
-  background-color: #006400; /* Verde escuro */
-  color: white; /* Texto branco para contraste */
+  background-color: #006400;
+  color: white; 
 }
 
-/* Mensagens do bot */
+
 .message-box .second-chat p {
-  background-color: #90ee90; /* Verde claro */
-  color: black; /* Texto preto para contraste */
+  background-color: #90ee90;
+  color: black; 
 }

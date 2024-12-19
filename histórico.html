@@ -16,7 +16,7 @@
     <header class="bg-light border-bottom">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html"><img src="images/icon.png" style="height: 20px;"/> My Health Hub</a>
+                <a class="navbar-brand" href="index.html"><img src="images/icon.png" style="height: 20px;"/> My MyHealth'ub</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -38,6 +38,9 @@
                             <a class="nav-link" href="profile.html">Perfil</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="about.html">Sobre Nós</a>
                         </li>
 
@@ -47,6 +50,14 @@
         </div>
     </header>
     <div class="container">
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Consultas</title>
+</head>
+<body>
     <table>
         <thead>
             <tr>
@@ -54,6 +65,8 @@
                 <th>Local</th>
                 <th>Especialidade</th>
                 <th>Médico</th>
+                <th>Adicionar Documentos</th>
+                <th>Documentos Adicionados</th>
             </tr>
         </thead>
         <tbody>
@@ -62,36 +75,41 @@
                 <td>Hospital da luz</td>
                 <td>Ortopedia</td>
                 <td>Dr.Ricardo Saúl</td>
+                <td><input type="file" class="fileInput" data-row="row1"></td>
             </tr>
             <tr class="row2">
                 <td>05/01/2024</td>
                 <td>CUF Viseu</td>
                 <td>Cardiologia</td>
                 <td>Dr.João Pereira</td>
+                <td><input type="file" class="fileInput" data-row="row2"></td>
             </tr>
             <tr class="row3">
                 <td>07/12/2023</td>
                 <td>Hospital da luz</td>
                 <td>Dermatologia</td>
                 <td>Dr.Manuel José</td>
+                <td><input type="file" class="fileInput" data-row="row3"></td>
             </tr>
             <tr class="row4">
                 <td>13/09/2023</td>
                 <td>Casa de São Mateus</td>
                 <td>Psiquiatria</td>
                 <td>Dr.Luís Freitas</td>
+                <td><input type="file" class="fileInput" data-row="row4"></td>
             </tr>
             <tr class="row5">
                 <td>17/05/2022</td>
                 <td>Hospital Lusíadas</td>
                 <td>Ortopedia</td>
                 <td>Dr.Tiago Vale</td>
+                <td><input type="file" class="fileInput" data-row="row5"></td>
             </tr>
         </tbody>
     </table>
     </div>
     <footer>
-        <p>&copy; 2024 My Health'Ub. Todos os direitos reservados.</p>
+        <p>&copy; 2024 MyHealth'Ub. Todos os direitos reservados.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

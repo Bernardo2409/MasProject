@@ -1,0 +1,266 @@
+.deneb_cta {
+    height: 600px;
+    margin: auto;
+    background-image: url('./images/topics/undraw_online_ad_re_ol62.png');
+    background-position: center -10%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+
+#testimonial-slider{
+    min-height: 300px;
+}
+.testimonial .pic{
+    width: 22%;
+    padding: 20px 0;
+    margin: 0 6% 0 2%;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+.testimonial .pic:before,
+.testimonial .pic:after{
+    content: "";
+    width: 130px;
+    height: 150px;
+    background: #28a745;
+    position: absolute;
+    z-index: -1;
+}
+.testimonial .pic:before{
+    top: 0;
+    right: -20px;
+}
+.testimonial .pic:after{
+    bottom: 0;
+    left: -20px;
+}
+.testimonial .pic img{
+    width: 100%;
+    height: auto;
+    border: 3px solid #90ee90;
+}
+.testimonial .testimonial-content{
+    width: 70%;
+    float: right;
+}
+.testimonial .title{
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    padding-top: 65px;
+    padding-left: 15px;
+}
+.testimonial .post{
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    padding-left: 15px;
+}
+.testimonial .description{
+    font-size: 16px;
+    color: #fff;
+    padding: 0 15px;
+    margin: 0;
+    position: relative;
+}
+.testimonial .description:before,
+.testimonial .description:after{
+    font-family: "Font Awesome 5 Free"; font-weight: 900;
+    font-size: 17px;
+    color: #e1c37d;
+    position: relative;
+}
+.testimonial .description .fa-quote-left{
+    margin-right: 5px;
+    color:#ff4b4b;
+    top: 0;
+    left: 0;
+}
+.testimonial .description .fa-quote-right{
+    margin-left: 5px;
+    position: relative;
+    color:#ff4b4b;
+    bottom: 0;
+    right: 0;
+}
+.owl-theme .owl-controls{
+    width: 70%;
+    margin: 0;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.owl-theme .owl-controls .owl-buttons div{
+    width: 70px;
+    height: 90px;
+    line-height: 90px;
+    background: transparent;
+    border-radius: 0;
+    opacity: 1;
+    position: relative;
+}
+.owl-prev:before,
+.owl-next:before{
+    content: "\f177";
+    font-family: "fontawesome";
+    font-size: 45px;
+    font-weight: 900;
+    color: #ddd;
+    position: absolute;
+    top: 0;
+    left: 25%;
+}
+.owl-next:before{
+    content: "\f178";
+}
+.owl-next:after{
+    content: " / ";
+    font-size: 40px;
+    color: #ddd;
+    position: absolute;
+    top: 0;
+    left: -10px;
+}
+@media (max-width: 990px){
+    .testimonial{ text-align: center; }
+    .testimonial .pic{
+        width: 200px;
+        margin: 0 auto;
+        float: none;
+    }
+    .testimonial .pic:before,
+    .testimonial .pic:after{
+        width: 80px;
+        height: 100px;
+    }
+    .testimonial .testimonial-content{
+        width: 100%;
+        float: none;
+    }
+    .testimonial .title{
+        padding: 15px 0 0 0;
+    }
+    .testimonial .post{
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .owl-theme .owl-controls{
+        width: 100%;
+        position: static;
+        text-align: center;
+    }
+    .owl-theme .owl-controls .owl-buttons div{
+        height: 50px;
+        line-height: 50px;
+    }
+}
+
+
+
+
+.deneb_cta .cta_wrapper {
+    padding: 45px 50px 42px;
+    max-width: 970px;
+    max-height: 285px;
+    border-radius: 15px;
+    margin: auto;
+    margin-bottom: 70px;
+    position: relative;
+    background-image: -moz-linear-gradient(0deg, #b3f6c2 0%, #038403 100%);
+    background-image: -webkit-linear-gradient(0deg, #71d7a7 0%, #218838 100%);
+    background-image: -ms-linear-gradient(0deg, #82dac3 0%, #218838 100%);
+    box-shadow: 2.5px 4.33px 15px 0px rgb(187, 187, 187);
+    z-index: 1;
+}
+
+.deneb_cta .cta_wrapper .cta_content h3 {
+    color: #fff;
+    font-weight: bold;
+}
+@media (max-width: 767px) {
+    .deneb_cta .cta_wrapper .cta_content h3 {
+        font-size: 24px;
+    }
+}
+
+.deneb_cta .cta_wrapper .cta_content p {
+    color: #fff;
+}
+.deneb_cta .cta_wrapper .button_box {
+    float: right;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .deneb_cta .cta_wrapper .button_box {
+        float: none;
+        text-align: left;
+        margin-top: 30px;
+    }
+}
+@media (max-width: 767px) {
+    .deneb_cta .cta_wrapper .button_box {
+        float: none;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+.deneb_cta .cta_wrapper .button_box .deneb_btn {
+    background: #fff;
+    color: #011a3e;
+}
+.deneb_cta .cta_wrapper .button_box .deneb_btn:hover,
+.deneb_cta .cta_wrapper .button_box .deneb_btn:focus {
+    box-shadow: 2.5px 4.33px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+	background-color: #f2f8fa;
+	border-top: 5px solid #53f080;
+	margin-bottom: 0px;
+
+}
+
+footer a:hover .fa-twitter{
+    color:#4CAF50;
+}
+footer a:hover .fa-instagram{
+    color:#e538ceb7;
+}
+footer a:hover .fa-youtube-play{
+    color:#ff0000b7;
+}
+
+footer h2, footer p, footer a, footer span {
+	color: #000000;
+}
+
+
+
+footer a {
+	text-decoration: none;
+}
+
+
+
+footer li {
+	list-style: none;
+}
+
+footer a:hover {
+	color: #FFF;
+}
+
+
