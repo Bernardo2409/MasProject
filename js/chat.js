@@ -111,32 +111,27 @@ function addMessageToChat(message, sender) {
 
 // Função para resposta do admin via OpenAI API
 async function adminResponse(userPrompt) {
-  const BASE_URL = "https://api.openai.com/v1/chat/completions"; // Endpoint correto
-  const API_TOKEN = "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";
+  const BASE_URL = "/api/chat";
 
   try {
     const response = await fetch(BASE_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${API_TOKEN}`,
       },
       body: JSON.stringify({
-        model: "gpt-4",
-        messages: [
-          { role: "system", content: "Você é um assistente útil no site português de agendamento de consultas médicas. Não te esqueças que o site é português de Portugal, logo tenta dizer as coisas de maneira mais certa possível. Também dás conselhos de clinicas e de médicos ao utilizador" },
-          { role: "user", content: userPrompt },
-        ],
+        prompt: userPrompt,
       }),
     });
 
     if (!response.ok) {
       const errorData = await response.json(); // Obter detalhes do erro
-      throw new Error(`Erro na API: ${response.status} - ${errorData.error.message}`);
+      const errorMessage = errorData?.error?.message || "Erro desconhecido no servidor.";
+      throw new Error(`Erro na API: ${response.status} - ${errorMessage}`);
     }
 
     const data = await response.json();
-    const adminMessage = data.choices[0].message.content;
+    const adminMessage = data.reply || data.message || "Desculpe, não consegui gerar uma resposta agora.";
     addMessageToChat(adminMessage, "admin");
   } catch (error) {
     console.error("Erro ao buscar resposta da API:", error);
